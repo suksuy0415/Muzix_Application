@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="UserTrackApplication" />
         <module name="AuthenticationUser" />
+        <module name="SpringApiGateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AuthenticationUser" options="-parameters" />
+      <module name="SpringApiGateway" options="-parameters" />
       <module name="UserTrackApplication" options="-parameters" />
       <module name="UserTrackService" options="-parameters" />
     </option>

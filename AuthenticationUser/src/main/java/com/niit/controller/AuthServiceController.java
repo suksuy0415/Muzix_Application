@@ -1,8 +1,7 @@
 package com.niit.controller;
 
-
 import com.niit.domain.User;
-import com.niit.service.UserTrackService;
+import com.niit.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,22 +10,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/api/v1")
-public class UserTrackController {
 
-    private UserTrackService userTrackService;
+@RestController
+@RequestMapping("/api/v2")
+public class AuthServiceController {
+
+
+    private AuthService authService;
+
+
 
     @Autowired
-    public UserTrackController(UserTrackService userTrackService)
+    public AuthServiceController(AuthService authService)
     {
-        this.userTrackService = userTrackService;
+        this.authService = authService;
     }
-
-
-    @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody User user)  {
-        return new ResponseEntity<>(userTrackService.registerUser(user), HttpStatus.CREATED);
+    @PostMapping("/user")
+    public ResponseEntity<?> saveUser(@RequestBody User user)  {
+        return new ResponseEntity<>(authService.saveUser(user), HttpStatus.CREATED);
     }
-
 }
